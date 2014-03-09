@@ -1,0 +1,49 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+  <!--  <parameters>
+        <parameter key="grooveshark.api.class">plfort\GroovesharkAPI\GroovesharkAPI</parameter>
+    </parameters>-->
+		<services>
+	   
+		   
+		<!--   <service id="webradio_music.playlist_renderer" class="Cogipix\CogimixWebRadioBundle\ViewHooks\Playlist\PlaylistRenderer">
+                <tag name="cogimix.playlist_renderer"/>
+                <tag name="logger_aware"/>
+           </service>
+           
+		   <service id="grooveshark_music.menu_renderer" class="Cogipix\CogimixWebRadioBundle\ViewHooks\Menu\MenuRenderer">
+                <tag name="cogimix.menu_renderer"/>
+           </service>-->
+           
+           <service id="webradio_music.widget_renderer" class="Cogipix\CogimixWebRadioBundle\ViewHooks\Widget\WidgetRenderer">
+                
+                <tag name="cogimix.widget_renderer"/>
+           </service>
+
+           
+          <service id="webradio_music.modal_renderer" class="Cogipix\CogimixWebRadioBundle\ViewHooks\Modal\ModalRenderer">
+                <tag name="cogimix.modal_renderer"/>
+           </service>
+           
+           <service id="webradio_music.jsimport_renderer" class="Cogipix\CogimixWebRadioBundle\ViewHooks\Javascript\JavascriptImportRenderer">
+                <tag name="cogimix.jsimport_renderer"/>
+           </service>
+           
+           <service id="webradio_music.dotimport_renderer" class="Cogipix\CogimixWebRadioBundle\ViewHooks\DotTemplate\DotTemplateRenderer">
+                <tag name="cogimix.dot_renderer"/>
+           </service>
+           
+          <service id="webradio_music.result_builder" class="Cogipix\CogimixWebRadioBundle\Services\ResultBuilder">
+             
+          </service>
+	
+          <service id="webradio_music.webradio_manager" parent="abstract_manager" class="Cogipix\CogimixWebRadioBundle\Manager\WebRadioManager">
+
+           </service>
+
+    
+		</services>
+</container>

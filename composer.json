@@ -1,0 +1,19 @@
+{
+	"name" : "cogipix/cogimixwebradio",
+	"type" : "symfony-bundle",
+	"authors" : [{
+			"name" : "Pierre-Louis FORT",
+			"email" : "plfort@cogipix.com"
+		}
+	],
+	"require" : {
+		"php" : ">=5.3.3"
+		
+	},
+	"autoload" : {
+		"psr-0" : {
+			"Cogipix\\CogimixWebRadioBundle" : ""
+		}
+	},
+	"target-dir" : "Cogipix/CogimixWebRadioBundle"
+}
