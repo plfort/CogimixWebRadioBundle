@@ -49,6 +49,7 @@ function showWebRadio(){
 			}
 		},'json');
 	}
+	setCurrentSongMap('webradio-tracks');
 	showPanel($pane.webradio);
 }
 
