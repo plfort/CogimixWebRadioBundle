@@ -10,7 +10,7 @@ use Cogipix\CogimixWebRadioBundle\Form\SearchWebRadioFormType;
 use Cogipix\CogimixWebRadioBundle\Entity\WebRadio;
 use Symfony\Component\HttpFoundation\Request;
 use Cogipix\CogimixCommonBundle\Utils\AjaxResult;
-
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
 /**
  * @Route("/webradio")
  * @author plfort - Cogipix
@@ -57,10 +57,13 @@ class DefaultController extends Controller
 
     /**
      *  @Route("/popular", name="_webradio_popular",options={"expose"=true})
+     *  
+     *  @Cache(expires="tomorrow", public=true)
+     *
      */
     public function popularWebRadiosAction(Request $request){
         $response = new AjaxResult();
-        $webRadios = $this->getDoctrine()->getRepository("CogimixWebRadioBundle:WebRadio")->searchByName(null);
+        $webRadios = $this->getDoctrine()->getRepository("CogimixWebRadioBundle:WebRadio")->searchByName(null,100);
         $webRadioTracks = $this->get('webradio_music.result_builder')->createArrayFromWebRadios($webRadios);
         $response->addData("webRadios", $webRadioTracks);
         $response->setSuccess(true);
