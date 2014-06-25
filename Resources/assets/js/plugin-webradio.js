@@ -28,7 +28,7 @@ function webRadioPlayer(musicPlayer) {
 			  multiShot : false,
 			  volume: self.musicPlayer.volume,
 			  onload: function(success) {
-				  if(success == false){
+				  if(success == false && item.pluginProperties.confirmed == false){
 					  if(item.pluginProperties.url.indexOf(';', item.pluginProperties.url.length - 1) == -1){
 						  //try shoutcast url "/;"
 						  if(item.pluginProperties.url.indexOf('/', item.pluginProperties.url.length - 1) !== -1){

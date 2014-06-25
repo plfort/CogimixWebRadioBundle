@@ -16,10 +16,16 @@ class WebRadioTrack extends TrackResult
     protected $shareable = true;
     
     protected $duration = -1;
+    
 
     public function setPath($path){
         $this->pluginProperties['url']=$path;
+        
     }
 
 
+    public function setConfirmed($confirmed){
+
+        $this->pluginProperties['confirmed']=$confirmed;
+    }
 }
