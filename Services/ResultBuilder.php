@@ -7,7 +7,7 @@ use Cogipix\CogimixWebRadioBundle\Entity\WebRadioTrack;
 class ResultBuilder implements ResultBuilderInterface
 {
 
-    private $basePathThumbnails = 'http://images.gs-cdn.net/static/albums/90_';
+   
     /**
      *
      * @param WebRadio $webRadio
@@ -25,6 +25,7 @@ class ResultBuilder implements ResultBuilderInterface
             $item->setThumbnails($this->getDefaultIcon());
             $item->setTag($this->getResultTag());
             $item->setIcon($this->getDefaultIcon());
+            $item->setConfirmed($webRadio->getConfirmed());
 
         }
         return $item;
