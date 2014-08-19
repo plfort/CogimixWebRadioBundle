@@ -1,0 +1,14 @@
+{% extends 'CogimixBundle::base_new.html.twig' %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript">
+    $(function(){
+    	renderResult({{ webradios|raw }},{
+			tpl:'webradioTpl',
+			alias:'webradio-tracks',
+			tabName:'webradio-tracks',
+			tooltip:true});
+        });
+    </script>
+{% endblock %}

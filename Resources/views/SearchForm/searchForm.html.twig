@@ -1,0 +1,14 @@
+<form id="searchWebRadio" class="navbar-form navbar-left hide" action="{{ path('_webradio_search') }}" method="POST">
+        {% form_theme formWebradio 'CogimixBundle::formHeader.html.twig' %}
+            <div class="form-group">
+                <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i></span>
+                     {{ form_widget(formWebradio.name,{'attr':{'placeholder':'search_webradio_input_placeholder', 'class':'form-control'} }) }}
+                 <span class="input-group-btn">
+                    <button type="submit" class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+                 </span>
+                </div>
+            </div>
+
+            {{ form_rest(formWebradio) }}
+</form>

@@ -1,16 +1,5 @@
-<div class="span12">
-    <form id="searchWebRadio" class="form-inline clearfix" action="{{ path('_webradio_search') }}" method="POST">
-            {% form_theme form 'CogimixBundle::formHeader.html.twig' %}
-                <div class="searchInput input-append span10">
-                 {{ form_widget(form.name,{'attr':{'placeholder':'search_webradio_input_placeholder', 'class':'span input-xxlarge'} }) }}
-                  <button type="submit" id="submitWebRadioSearchBtn" class="btn btn-primary"  ><span class="fui-search"></span></button>
-                  <a id="clearWebRadioSearchBtn" class="btn btn-danger"  ><span class="fui-cross"></span></a>
-                </div>
-
-                {{ form_rest(form) }}
-    </form>
-
-    <div id="webradio-results" class="row-fluid resizeable">
+<div class="col-md-12">
+    <div id="webradio-results" class="row-fluid">
 
     </div>
 </div>

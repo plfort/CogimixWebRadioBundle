@@ -13,14 +13,14 @@ class SearchWebRadioFormType extends AbstractType {
 
 
     public function buildForm(FormBuilderInterface $builder, array $options) {
-        $builder->add('name', null);
+        $builder->add('name', null,array('required'=>false));
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array('data_class' => 'Cogipix\CogimixWebRadioBundle\Entity\WebRadio',
                 'validation_groups' => array('Search'),
-                'intention'=>'search_webradio',
+                'csrf_protection'=>false,
                 ));
     }
 

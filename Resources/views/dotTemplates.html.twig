@@ -1,11 +1,11 @@
 <script id="webradioTpl" type="text/x-dot-template">
 <div class="search-result draggable" title="[[!it.result.title ]]">
 <div class="serviceResult draggable-handle" data-tag="[[!it.result.tag ]]" data-id="[[!it.result.uiId ]]">
-<div class="cover">
-    <img src="[[!it.result.thumbnails ]]"/>
-</div>
+<div class="cover" style="background-image:url([[!it.result.thumbnails ]]); ">
+<div class="artistTitle">
     <p>[[!it.result.title ]]</p>
 </div>
-<div class="hover-icon"> <img class="" src="[[! getServiceIcon(it.result.tag) ]]"/></div>
+</div>
+</div>
 </div>
 </script>
