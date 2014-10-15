@@ -14,7 +14,7 @@ use Cogipix\CogimixCommonBundle\Utils\AjaxResult;
  * @Route("/webradio")
  *
  * @author plfort - Cogipix
- *
+ *        
  */
 class DefaultController extends Controller
 {
@@ -32,19 +32,18 @@ class DefaultController extends Controller
             $form->handleRequest($request);
         }
         if ($request->isMethod('GET')) {
-
-
+            
             $form->submit($this->mapQueryForSubmitSearch($request));
         }
-
+        
         if ($form->isValid()) {
             $webRadio = $form->getData();
-
+            
             $webRadios = $this->getDoctrine()
                 ->getRepository("CogimixWebRadioBundle:WebRadio")
-                ->searchByName($webRadio->getName());
+                ->searchByName($webRadio->getName(),100);
             $webRadioTracks = $this->get('webradio_music.result_builder')->createArrayFromWebRadios($webRadios);
-
+            
             $response->setSuccess(true);
         }
         if ($request->isXmlHttpRequest()) {
@@ -68,9 +67,9 @@ class DefaultController extends Controller
     {
         $webRadios = $this->getDoctrine()
             ->getRepository("CogimixWebRadioBundle:WebRadio")
-            ->searchByName(null);
+            ->searchByName(null,100);
         $webRadioTracks = $this->get('webradio_music.result_builder')->createArrayFromWebRadios($webRadios);
-
+        
         $serializer = $this->get('jms_serializer');
         if ($request->isXmlHttpRequest()) {
             $response = new AjaxResult();
@@ -89,9 +88,9 @@ class DefaultController extends Controller
     /**
      * @Route("/inc/{id}", name="_webradio_increase_play",options={"expose"=true})
      *
-     * @param Request $request
-     * @param integer $id
-     * @param string $url
+     * @param Request $request            
+     * @param integer $id            
+     * @param string $url            
      */
     public function confirmWebRadioAction(Request $request, $id)
     {
@@ -111,7 +110,7 @@ class DefaultController extends Controller
     public function renderWebRadioSearchFormAction(Request $request)
     {
         $form = $this->getWebRadioForm($request);
-
+        
         return array(
             'formWebradio' => $form->createView()
         );
@@ -119,23 +118,23 @@ class DefaultController extends Controller
 
     private function mapQueryForSubmitSearch(Request $request)
     {
-            $formData = array();
-            $formData['name']=$request->query->get('q',null);
-            return $formData;
+        $formData = array();
+        $formData['name'] = $request->query->get('q', null);
+        return $formData;
     }
 
     private function getWebRadioForm($request)
     {
         $webradio = new WebRadio();
-        if($request != null){
+        if ($request != null) {
             $query = $request->query->get('q', null);
             if ($query != null) {
                 $webradio->setName($query);
             }
         }
-
+        
         $form = $this->createForm(new SearchWebRadioFormType(), $webradio);
-
+        
         return $form;
     }
 }
