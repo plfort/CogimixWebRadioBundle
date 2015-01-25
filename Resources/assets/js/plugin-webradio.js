@@ -8,7 +8,7 @@ function webRadioPlayer(musicPlayer) {
 	this.currentSoundObject=null;
 	var self = this;
 	self.musicPlayer.cursor.progressbar();
-	
+	this.widgetElement =$("#cogimix-widget");
 	this.requestCancel=function(){
 		self.cancelRequested=true;
 		if(self.currentSoundObject){
