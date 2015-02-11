@@ -7,7 +7,7 @@ use Cogipix\CogimixWebRadioBundle\Entity\WebRadioTrack;
 class ResultBuilder implements ResultBuilderInterface
 {
 
-   
+
     /**
      *
      * @param WebRadio $webRadio
@@ -51,7 +51,7 @@ class ResultBuilder implements ResultBuilderInterface
     }
 
     public function getDefaultIcon(){
-        return '/bundles/cogimixwebradio/images/webradio_92.png';
+        return '/bundles/cogimixwebradio/images/webradio_200.png';
     }
 
 }
