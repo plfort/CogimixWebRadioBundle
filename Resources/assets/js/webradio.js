@@ -26,6 +26,7 @@ $(document).ready(function(){
 				tpl:'webradioTpl',
 				alias:'webradio-tracks',
 				tabName:'webradio-tracks',
+				emptyMessage: render('webradiosEmptyList'),
 				tooltip:true});
 			historyPushWebRadio();
 			
@@ -43,6 +44,7 @@ function showWebRadio(){
 					tpl:'webradioTpl',
 					alias:'webradio-tracks',
 					tabName:'webradio-tracks',
+					emptyMessage: render('webradiosEmptyList'),
 					tooltip:true});
 				
 			}
