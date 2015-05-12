@@ -1,6 +1,5 @@
 <?php
 namespace Cogipix\CogimixWebRadioBundle\Services;
-use Cogipix\CogimixCommonBundle\Entity\TrackResult;
 
 use Cogipix\CogimixCommonBundle\ResultBuilder\ResultBuilderInterface;
 use Cogipix\CogimixWebRadioBundle\Entity\WebRadioTrack;

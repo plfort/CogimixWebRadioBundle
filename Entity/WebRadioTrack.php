@@ -1,8 +1,8 @@
 <?php
 namespace Cogipix\CogimixWebRadioBundle\Entity;
 
+use Cogipix\CogimixCommonBundle\Entity\Song;
 use Doctrine\ORM\Mapping as ORM;
-use Cogipix\CogimixCommonBundle\Entity\TrackResult;
 use JMS\Serializer\Annotation as JMSSerializer;
 /**
  *
@@ -11,7 +11,7 @@ use JMS\Serializer\Annotation as JMSSerializer;
  * @author plfort - Cogipix
  *
  */
-class WebRadioTrack extends TrackResult
+class WebRadioTrack extends Song
 {
     protected $shareable = true;
     
