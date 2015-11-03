@@ -7,7 +7,10 @@ $(document).ready(function(){
 	$pane.webradio = {
 			content:$("#webRadioPane"),
 			menuLink:$("#webRadioMenuItem"),
-			searchForm:$("#searchWebRadio")
+			searchForm:$("#searchWebRadio"),
+            shown:function(){
+                currentFilterFunction=filterWebradioResults
+            }
 			};
 	
 	$pane.webradio.menuLink.click(function(){
@@ -23,7 +26,7 @@ $(document).ready(function(){
 		postForm($(this),function(response){
 			
 			renderResult(response.data.webRadios,{
-				tpl:'webradioTpl',
+				tpl:'trackNoSortTpl',
 				alias:'webradio-tracks',
 				tabName:'webradio-tracks',
 				emptyMessage: render('webradiosEmptyList'),
@@ -41,7 +44,7 @@ function showWebRadio(){
 		$.get(Routing.generate('_webradio_popular'),function(response){
 			if(response.success == true){		
 				renderResult(response.data.webRadios,{
-					tpl:'webradioTpl',
+					tpl:'trackNoSortTpl',
 					alias:'webradio-tracks',
 					tabName:'webradio-tracks',
 					emptyMessage: render('webradiosEmptyList'),

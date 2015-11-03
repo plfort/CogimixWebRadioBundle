@@ -14,7 +14,7 @@ use Doctrine\ORM\EntityRepository;
  * @author plfort - Cogipix
  *
  */
-class WebRadioRepository extends EntityRepository{
+class WebRadioTrackRepository extends EntityRepository{
 
 
     public function searchByName($name,$limit=50,$orderByPlayedCount= true){
@@ -23,7 +23,7 @@ class WebRadioRepository extends EntityRepository{
             ->andWhere('w.active = 1');
 
        if(!empty($name)){
-           $qb->andWhere('w.name like :name')->setParameter('name', '%'.$name.'%');
+           $qb->andWhere('w.title like :name')->setParameter('name', '%'.$name.'%');
        }
 
        if(!empty($limit)){

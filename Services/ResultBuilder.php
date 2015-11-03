@@ -1,6 +1,7 @@
 <?php
 namespace Cogipix\CogimixWebRadioBundle\Services;
 
+use Cogipix\CogimixCommonBundle\Entity\Song;
 use Cogipix\CogimixCommonBundle\ResultBuilder\ResultBuilderInterface;
 use Cogipix\CogimixWebRadioBundle\Entity\WebRadioTrack;
 class ResultBuilder implements ResultBuilderInterface
@@ -25,7 +26,8 @@ class ResultBuilder implements ResultBuilderInterface
             $item->setTag($this->getResultTag());
             $item->setIcon($this->getDefaultIcon());
             $item->setConfirmed($webRadio->getConfirmed());
-
+            $item->setActive($webRadio->getActive());
+            $item->setPlayCount($webRadio->getPlayCount());
         }
         return $item;
     }

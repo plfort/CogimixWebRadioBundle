@@ -15,9 +15,9 @@ class WebRadioManager extends AbstractManager
     public function confirmAndIncreasePlayCount($webRadioId,$url){
         $this->em->beginTransaction();
         try{
-            $webRadio = $this->em->find("CogimixWebRadioBundle:WebRadio", $webRadioId,LockMode::PESSIMISTIC_READ);
+            $webRadio = $this->em->find("CogimixWebRadioBundle:WebRadioTrack", $webRadioId,LockMode::PESSIMISTIC_READ);
             if($webRadio){
-                if($webRadio->getConfirmed() == false ){
+                if($webRadio->isConfirmed() == false ){
                     if($webRadio->getUrl() != $url){
                         $webRadio->setUrl($url);
                     }
@@ -37,7 +37,7 @@ class WebRadioManager extends AbstractManager
     }
 
     public function increasePlayCountById($webRadioId){
-        $webRadio = $this->em->find("CogimiwWebRadioBundle:WebRadio", $webRadioId,LockMode::PESSIMISTIC_READ);
+        $webRadio = $this->em->find("CogimiwWebRadioBundle:WebRadioTrack", $webRadioId,LockMode::PESSIMISTIC_READ);
         if($webRadio){
             $webRadio->increasePlayCount();
             $this->em->flush();

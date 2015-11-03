@@ -38,11 +38,10 @@ class DefaultController extends Controller
         
         if ($form->isValid()) {
             $webRadio = $form->getData();
-            
-            $webRadios = $this->getDoctrine()
-                ->getRepository("CogimixWebRadioBundle:WebRadio")
+
+            $webRadioTracks = $this->getDoctrine()
+                ->getRepository("CogimixWebRadioBundle:WebRadioTrack")
                 ->searchByName($webRadio->getName(),100);
-            $webRadioTracks = $this->get('webradio_music.result_builder')->createArrayFromWebRadios($webRadios);
             
             $response->setSuccess(true);
         }
@@ -66,21 +65,20 @@ class DefaultController extends Controller
     public function popularWebRadiosAction(Request $request)
     {
         $webRadios = $this->getDoctrine()
-            ->getRepository("CogimixWebRadioBundle:WebRadio")
+            ->getRepository("CogimixWebRadioBundle:WebRadioTrack")
             ->searchByName(null,100);
-        $webRadioTracks = $this->get('webradio_music.result_builder')->createArrayFromWebRadios($webRadios);
-        
+
         $serializer = $this->get('jms_serializer');
         if ($request->isXmlHttpRequest()) {
             $response = new AjaxResult();
-            $response->addData("webRadios", $webRadioTracks);
+            $response->addData("webRadios", $webRadios);
             $response->setSuccess(true);
             return $response->createResponse($serializer);
         } else {
             $viewParam = array();
             $viewParam['currentMenu'] = "webradios";
             $viewParam['currentPanel'] = "webradios";
-            $viewParam['webradios'] = $serializer->serialize($webRadioTracks, 'json');
+            $viewParam['webradios'] = $serializer->serialize($webRadios, 'json');
             return $this->render('CogimixWebRadioBundle:Default:popular.html.twig', $viewParam);
         }
     }

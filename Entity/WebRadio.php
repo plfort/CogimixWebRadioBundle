@@ -1,16 +1,17 @@
 <?php
 namespace Cogipix\CogimixWebRadioBundle\Entity;
 
+use Cogipix\CogimixCommonBundle\Model\ShareableItem;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Table(name="webradio",indexes={@ORM\Index(name="search_idx", columns={"name"})})
- * @ORM\Entity(repositoryClass="Cogipix\CogimixWebRadioBundle\Repository\WebRadioRepository")
+ * @ORM\Entity()
  *
  * @author plfort - Cogipix
  *
  */
-class WebRadio
+class WebRadio implements ShareableItem
 {
 
     /**
@@ -174,6 +175,15 @@ class WebRadio
     }
 
 
+    public function getShareableItemName()
+    {
+        return $this->getName();
+    }
+
+    public function getImage()
+    {
+        return null;
+    }
 
 
 

@@ -43,7 +43,7 @@ function webRadioPlayer(musicPlayer) {
 				  }else{
 					 
 					  var data={'url':item.pluginProperties.url};
-					  $.post(Routing.generate('_webradio_increase_play',{'id':item.entryId}),data,function(response){});
+					  $.post(Routing.generate('_webradio_increase_play',{'id':item.id}),data,function(response){});
 					  self.musicPlayer.enableControls();
 					  self.musicPlayer.cursor.slider("option", "max", this.duration/1000).progressbar();			  
 					  self.musicPlayer.bindCursorStop(function(value) {
