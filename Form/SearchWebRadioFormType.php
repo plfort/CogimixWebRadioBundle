@@ -1,6 +1,7 @@
 <?php
 namespace Cogipix\CogimixWebRadioBundle\Form;
 
+use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 use Symfony\Component\Form\FormBuilderInterface;
@@ -16,7 +17,7 @@ class SearchWebRadioFormType extends AbstractType {
         $builder->add('name', null,array('required'=>false));
     }
 
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array('data_class' => 'Cogipix\CogimixWebRadioBundle\Entity\WebRadio',
                 'validation_groups' => array('Search'),
