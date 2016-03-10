@@ -41,6 +41,12 @@ class WebRadioTrack extends Song
         
     }
 
+    public function getPath(){
+        return $this->pluginProperties['url'];
+
+    }
+
+
     /**
      * @return boolean
      */

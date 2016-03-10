@@ -18,8 +18,8 @@ class WebRadioManager extends AbstractManager
             $webRadio = $this->em->find("CogimixWebRadioBundle:WebRadioTrack", $webRadioId,LockMode::PESSIMISTIC_READ);
             if($webRadio){
                 if($webRadio->isConfirmed() == false ){
-                    if($webRadio->getUrl() != $url){
-                        $webRadio->setUrl($url);
+                    if($webRadio->getPath() != $url){
+                        $webRadio->setPath($url);
                     }
 
                     $webRadio->setConfirmed(true);
@@ -30,6 +30,7 @@ class WebRadioManager extends AbstractManager
                 $this->em->commit();
             }
         }catch(\Exception $ex){
+            $this->logger->error($ex);
             $this->em->rollback();
         }
 
