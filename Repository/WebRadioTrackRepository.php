@@ -20,10 +20,10 @@ class WebRadioTrackRepository extends EntityRepository{
     public function searchByName($name,$limit=50,$orderByPlayedCount= true){
        $qb= $this->createQueryBuilder('w');
        $qb->select('w')
-            ->andWhere('w.active = 1');
+            ->andWhere('w.active = true');
 
        if(!empty($name)){
-           $qb->andWhere('w.title like :name')->setParameter('name', '%'.$name.'%');
+           $qb->andWhere('LOWER(w.title) like :name')->setParameter('name', '%'.strtolower($name).'%');
        }
 
        if(!empty($limit)){

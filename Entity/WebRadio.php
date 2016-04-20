@@ -17,7 +17,7 @@ class WebRadio implements ShareableItem
     /**
      * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="AUTO")
      *
      * @var int $id
      */
@@ -65,13 +65,13 @@ class WebRadio implements ShareableItem
     protected $playCount=0;
 
     /**
-     * @ORM\Column(type="boolean",options={"default=false"})
+     * @ORM\Column(type="boolean")
      * @var boolean $confirmed
      */
     protected $confirmed = false;
 
     /**
-     * @ORM\Column(type="boolean",options={"default=false"})
+     * @ORM\Column(type="boolean")
      * @var boolean $active
      */
     protected $active = true;
